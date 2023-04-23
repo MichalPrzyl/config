@@ -1,8 +1,6 @@
 --  MP options
 
-
 local set = vim.opt -- set options
-
 
 -- relativenumber
 vim.opt.relativenumber = true

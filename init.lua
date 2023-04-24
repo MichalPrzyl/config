@@ -17,3 +17,15 @@ vim.keymap.set('n', '<leader>push', "<cmd>:Git push<cr>")
 set.tabstop = 2
 set.softtabstop = 2
 set.shiftwidth = 2
+
+-- toggle diagnostics
+disable_diagnostics = function()
+  vim.diagnostic.disable()
+end
+
+enable_diagnostics = function()
+  vim.diagnostic.enable()
+end
+
+vim.keymap.set({ 'n', 'v' }, '<F2>', disable_diagnostics)
+vim.keymap.set({ 'n', 'v' }, '<F3>', enable_diagnostics)

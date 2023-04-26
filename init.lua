@@ -21,6 +21,10 @@ set.tabstop = 2
 set.softtabstop = 2
 set.shiftwidth = 2
 
+-- toggle hlsearch
+vim.keymap.set({ 'n', 'v' }, '<F25>', "<cmd>:set hlsearch<cr>") -- ctrl + <F1>
+vim.keymap.set({ 'n', 'v' }, '<F26>', "<cmd>:set nohlsearch<cr>") -- ctrl + <F2>
+
 -- toggle diagnostics
 disable_diagnostics = function()
   vim.diagnostic.disable()
@@ -32,7 +36,3 @@ end
 
 vim.keymap.set({ 'n', 'v' }, '<F27>', enable_diagnostics) -- ctrl + <F3>
 vim.keymap.set({ 'n', 'v' }, '<F28>', disable_diagnostics) -- ctrl + <F4>
-
--- toggle hlsearch
-vim.keymap.set({ 'n', 'v' }, '<F25>', "<cmd>:set hlsearch<cr>") -- ctrl + <F1>
-vim.keymap.set({ 'n', 'v' }, '<F26>', "<cmd>:set nohlsearch<cr>") -- ctrl + <F2>

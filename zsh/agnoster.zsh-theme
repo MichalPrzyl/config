@@ -1,3 +1,4 @@
+# MP
 # vim:ft=zsh ts=2 sw=2 sts=2
 #
 # agnoster's Theme - https://gist.github.com/3712874
@@ -34,7 +35,7 @@
 
 CURRENT_BG='NONE'
 
-case ${SOLARIZED_THEME:-light} in
+case ${SOLARIZED_THEME:-dark} in
     light) CURRENT_FG='white';;
     *)     CURRENT_FG='black';;
 esac
@@ -83,13 +84,24 @@ prompt_end() {
   CURRENT_BG=''
 }
 
+# my empty first segment
+
+prompt_empty_segment() {
+  prompt_segment ""
+}
+
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
 
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment '#fcba03' black "%(!.%{%F{yellow}%}.)%n@%m"
+    # standard
+    #prompt_segment '#8a8a8a' black "%(!.%{%F{yellow}%}.)%n@%m"
+    # without machine, just username
+     prompt_segment '#8a8a8a' black "%(!.%{%F{yellow}%}.)%n"
+    # empty first segment. just for arrow
+    #prompt_segment ""
   fi
 }
 
@@ -255,10 +267,11 @@ prompt_aws() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
+  prompt_empty_segment
   prompt_status
   prompt_virtualenv
   prompt_aws
-  #prompt_context
+  prompt_context
   prompt_dir
   prompt_git
   prompt_bzr

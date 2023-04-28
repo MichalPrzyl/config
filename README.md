@@ -12,3 +12,7 @@ In future I will add:
 
 ## ZSH config
 Now it only contains config for "agnoster" theme from "oh-my-zsh". Really nice looking one!
+
+In future I will add:
+- `.zshrc` file
+- other oh-my-zsh plugins config
